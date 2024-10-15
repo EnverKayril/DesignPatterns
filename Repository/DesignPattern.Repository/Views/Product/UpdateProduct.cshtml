@@ -1,0 +1,21 @@
+﻿@model UpdateProductViewModel
+
+<div class="container">
+    <br />
+    <form method="post">
+        <input type="hidden" asp-for="Product.ProductId" />
+        <label>Ürün Adı</label>
+        <input type="text" asp-for="Product.ProductName" class="form-control" />
+        <br />
+        <label>Ürün Fiyatı</label>
+        <input type="text" asp-for="Product.ProductPrice" class="form-control" />
+        <br />
+        <label>Stok Sayısı</label>
+        <input type="text" asp-for="Product.ProductStock" class="form-control" />
+        <br />
+        <label>Kategori</label>
+        @Html.DropDownListFor(x => x.Product.CategoryId, Model.Categories, null, new { @class = "form-control" })
+        <br />
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>

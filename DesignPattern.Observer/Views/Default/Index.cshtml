@@ -1,0 +1,27 @@
+﻿@model RegisterViewModel
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <form method="post">
+        <labe>Adınız</labe>
+        <input type="text" asp-for="Name" class="form-control" />
+        <br />
+        <labe>Soyadınız</labe>
+        <input type="text" asp-for="Surname" class="form-control" />
+        <br />
+        <labe>Mail Adresiniz</labe>
+        <input type="text" asp-for="Email" class="form-control" />
+        <br />
+        <labe>Kullanıcı Adınız</labe>
+        <input type="text" asp-for="UserName" class="form-control" />
+        <br />
+        <labe>Şifreniz</labe>
+        <input type="password" asp-for="Password" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Kayıt Ol</button>
+    </form>
+</div>

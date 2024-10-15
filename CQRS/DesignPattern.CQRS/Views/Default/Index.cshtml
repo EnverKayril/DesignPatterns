@@ -1,0 +1,35 @@
+﻿@model IList<DesignPattern.CQRS.CQRSPattern.Results.GetProductQueryResult>
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+
+<div class="container">
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th>Detay</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+                <td><a asp-controller="Default" asp-action="GetProduct" asp-route-id="@item.ProductId" class="btn btn-dark">Detay</a></td>
+                <td><a asp-controller="Default" asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-danger">Sil</a></td>
+                <td><a asp-controller="Default" asp-action="UpdateProduct" asp-route-id="@item.ProductId" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="Default" asp-action="AddProduct" class="btn btn-primary">Yeni Ürün Girişi</a>
+</div>
