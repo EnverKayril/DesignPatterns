@@ -1,0 +1,39 @@
+﻿@using DesignPattern.Mediator.MediatorPattern.Results
+@model List<GetAllProductQueryResult>
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ürün Adı</th>
+        <th>Fiyatı</th>
+        <th>Stok Sayısı</th>
+        <th>Stok Türü</th>
+        <th>Kategori</th>
+        <th>Detaylar</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>@item.ProductName</td>
+            <td>@item.ProductPrice</td>
+            <td>@item.ProductStock</td>
+            <td>@item.ProductStockType</td>
+            <td>@item.ProductCategory</td>
+                <td><a asp-controller="Product" asp-action="GetProduct" asp-route-id="@item.ProductId" class="btn btn-outline-dark">Detaylar</a></td>
+                <td><a asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@item.ProductId" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-outline-danger">Sil</a></td>
+        </tr>
+        }
+</table>
+    <td><a asp-controller="Product" asp-action="CreateProduct" class="btn btn-outline-info">Yeni Ürün Ekle</a></td>
+
+</div>
