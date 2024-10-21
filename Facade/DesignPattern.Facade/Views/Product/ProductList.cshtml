@@ -1,0 +1,28 @@
+﻿@model List<DesignPattern.Facade.DAL.Product>
+@{
+    Layout = "~/Views/Shared/_FacadeLayout.cshtml";
+}
+
+<h1>Müşteri Listesi</h1>
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Stok</th>
+            <th>Fiyat</th>
+            <th>Kategori</th>
+        </tr>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.ProductId</td>
+                <td>@customer.ProductName</td>
+                <td>@customer.ProductStock</td>
+                <td>@customer.ProductPrice</td>
+                <td>@customer.ProductCategory</td>
+            </tr>
+        }
+    </table>
+    <a asp-controller="Product" asp-action="AddNewProduct" class="btn btn-primary">Yeni Ürün Ekle</a>
+</div>
